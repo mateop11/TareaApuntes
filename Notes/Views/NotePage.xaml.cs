@@ -7,5 +7,3 @@ public partial class NotePage : ContentPage
         InitializeComponent();
     }
 }
-
-
