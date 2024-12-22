@@ -21,7 +21,7 @@ public partial class NotePage : ContentPage
 
     private async void SaveButton_Clicked(object sender, EventArgs e)
     {
-        if (BindingContext is Models.Note note)
+        if (BindingContext is Models.NoteMP note)
             File.WriteAllText(note.Filename, TextEditor.Text);
 
         await Shell.Current.GoToAsync("..");
@@ -29,7 +29,7 @@ public partial class NotePage : ContentPage
 
     private async void DeleteButton_Clicked(object sender, EventArgs e)
     {
-        if (BindingContext is Models.Note note)
+        if (BindingContext is Models.NoteMP note)
         {
             // Delete the file.
             if (File.Exists(note.Filename))
@@ -40,7 +40,7 @@ public partial class NotePage : ContentPage
     }
     private void LoadNote(string fileName)
     {
-        Models.Note noteModel = new Models.Note();
+        Models.NoteMP noteModel = new Models.NoteMP();
         noteModel.Filename = fileName;
 
         if (File.Exists(fileName))
